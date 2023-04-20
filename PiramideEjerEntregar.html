@@ -8,7 +8,40 @@
     <link rel="stylesheet" type="text/css" href="StiloPiramide.css" />
 </head>
 <body>
+      <script>
+		function posicionPiramide() {
+			var posicion = prompt("Ingresa una posición valida (1-5):");
+			var color = prompt("Ingresa un color valido(azul,verde,rojo):");
+			crearPiramide(posicion, color);
+		}
+		function crearPiramide(posicion, color) {
+			var elemento = document.getElementById("caja" + posicion);
+			var altura = 5;
+			var piramide = "";
+			
+			elemento.innerHTML = "";
+			switch(color) {
+				case "azul":
+					elemento.style.backgroundColor = "blue";
+					break;
+				case "verde":
+					elemento.style.backgroundColor = "green";
+					break;
+				case "rojo":
+					elemento.style.backgroundColor = "red";
+					break;
+				default:
+					alert("Introduce un color valido");
+			}
+			for (var i = 0; i < altura; i++) {
+				piramide += "M";
+				elemento.innerHTML += piramide + "<br>";
+			}
+		}
+    </script>
+
     <div id="contenedor">
+
         <div id= "fila1">
             <div id="caja1">
             <h1>1</h1>
@@ -30,10 +63,12 @@
             <h1>5</h1>
             </div>
             </div>
-            adadadadkddkannn  
-            jaci
-        
+            
+    
     </div>
+    <script>
+		posicionPiramide();
+	</script>
     
 </body>
 </html>
