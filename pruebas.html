@@ -8,23 +8,36 @@
 </head>
 <body>
     <script>
-        let x=prompt("Ingrese algo");
-        console.log(x);
-        console.log(typeof(x));
-        let y=false;
-        if(x>1){
-            let y = true;
-        }else{
-            let y = false;
-        }
-        
-        console.log(y);
-        console.log(typeof(y));
-
-        let suma=x+y;
-        console.log(suma);
-        console.log(typeof(suma));
-    </script>
+		function pedirPosicion() {
+			var posicion = prompt("Ingresa la posición (1-5):");
+			var color = prompt("Ingresa un color (rojo, amarillo o verde):");
+			crearPiramide(posicion, color);
+		}
+		function crearPiramide(posicion, color) {
+			var elemento = document.getElementById("d" + posicion);
+			var altura = 5;
+			var piramide = "";
+			// borra el contenido anterior
+			elemento.innerHTML = "";
+			switch(color) {
+				case "azul":
+					elemento.style.backgroundColor = "blue";
+					break;
+				case "verde":
+					elemento.style.backgroundColor = "green";
+					break;
+				case "rojo":
+					elemento.style.backgroundColor = "red";
+					break;
+				default:
+					alert("Intrdoce un color valido");
+			}
+			for (var i = 0; i < altura; i++) {
+				piramide += "#";
+				elemento.innerHTML += piramide + "<br>";
+			}
+		}
+	</script>
     
 </body>
 </html>
